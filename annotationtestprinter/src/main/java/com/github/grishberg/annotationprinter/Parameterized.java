@@ -11,6 +11,9 @@ import java.lang.annotation.Target;
  * Parametrized annotations.
  */
 public class Parameterized {
+    public Parameterized() {
+        //not used.
+    }
 
     public static final String PARAM_INDEX = "paramIndex";
 
