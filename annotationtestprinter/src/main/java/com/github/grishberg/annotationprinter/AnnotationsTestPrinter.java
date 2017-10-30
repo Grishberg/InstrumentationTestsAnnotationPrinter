@@ -31,7 +31,7 @@ public class AnnotationsTestPrinter extends InstrumentationRunListener {
             if (isNeedComm) {
                 annotationsBuilder.append(",");
             }
-            annotationsBuilder.append(annotation.annotationType().getSimpleName());
+            annotationsBuilder.append(annotation.annotationType().getName());
 
             // special case of AnnotationWithIndex
             if (annotation instanceof Parameterized.AnnotationWithIndex) {
