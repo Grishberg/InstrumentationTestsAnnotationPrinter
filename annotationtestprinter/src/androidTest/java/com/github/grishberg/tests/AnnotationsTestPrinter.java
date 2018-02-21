@@ -1,8 +1,11 @@
-package com.github.grishberg.annotaions;
+package com.github.grishberg.tests;
 
 import android.os.Bundle;
 import android.support.test.internal.runner.listener.InstrumentationResultPrinter;
 import android.support.test.internal.runner.listener.InstrumentationRunListener;
+
+import com.github.grishberg.annotaions.Feature;
+import com.github.grishberg.annotaions.ParametrizedFeature;
 
 import org.junit.runner.Description;
 
@@ -10,7 +13,7 @@ import java.lang.annotation.Annotation;
 import java.util.Collection;
 
 /**
- * source https://github.com/medisafe/run-android-tests
+ * Main idea https://github.com/medisafe/run-android-tests
  */
 public class AnnotationsTestPrinter extends InstrumentationRunListener {
 
