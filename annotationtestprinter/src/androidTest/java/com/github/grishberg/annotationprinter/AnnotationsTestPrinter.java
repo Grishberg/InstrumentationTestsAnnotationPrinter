@@ -1,4 +1,4 @@
-package com.github.grishberg.tests;
+package com.github.grishberg.annotationprinter;
 
 import android.os.Bundle;
 import android.support.test.internal.runner.listener.InstrumentationResultPrinter;
