@@ -3,7 +3,7 @@ apply plugin: 'com.android.library'
 ext {
     PUBLISH_GROUP_ID = 'com.github.grishberg'
     PUBLISH_ARTIFACT_ID = 'annotationprinter'
-    PUBLISH_VERSION = '0.2.0'
+    PUBLISH_VERSION = '0.2.2'
 }
 
 android {
