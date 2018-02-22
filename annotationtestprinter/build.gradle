@@ -42,7 +42,7 @@ dependencies {
     implementation "com.android.support.test:runner:${testRunnerVersion}"
     implementation "com.android.support.test:rules:${testRunnerVersion}"
 
-    androidTestImplementation 'com.android.support.test:runner:1.0.1'
+    androidTestImplementation "com.android.support.test:runner:${testRunnerVersion}"
     androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
 }
 //need to call  ./gradlew clean build generateRelease
