@@ -3,8 +3,9 @@ InstrumentationTestsAnnotationPrinter
 
 To use add gradle dependency to target android project:
 ```
-compile 'com.github.grishberg:annotationprinter:0.1.1'
+androidTestImplementation "com.github.grishberg:annotationprinter:${preinter_version}"
 ```
+Log parser placed in https://github.com/Grigory-Rylov/android-instrumental-test-runner
 
 Copyright 2017 Grigory Rylov
 
