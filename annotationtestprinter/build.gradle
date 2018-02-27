@@ -3,15 +3,15 @@ apply plugin: 'com.android.library'
 ext {
     PUBLISH_GROUP_ID = 'com.github.grishberg'
     PUBLISH_ARTIFACT_ID = 'annotationprinter'
-    PUBLISH_VERSION = '0.2.2'
+    PUBLISH_VERSION = '0.2.3'
 }
 
 android {
-    compileSdkVersion 26
+    compileSdkVersion 27
 
     defaultConfig {
-        minSdkVersion 9
-        targetSdkVersion 26
+        minSdkVersion 14
+        targetSdkVersion 27
         versionCode 1
         versionName "1.0"
 
