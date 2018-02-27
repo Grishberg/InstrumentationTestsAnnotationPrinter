@@ -3,6 +3,7 @@ package com.github.grishberg.annotationprinter;
 import android.os.Bundle;
 import android.support.test.internal.runner.listener.InstrumentationResultPrinter;
 import android.support.test.internal.runner.listener.InstrumentationRunListener;
+import android.util.Log;
 
 import com.github.grishberg.annotaions.Feature;
 import com.github.grishberg.annotaions.ParametrizedFeature;
@@ -16,13 +17,16 @@ import java.util.Collection;
  * Main idea https://github.com/medisafe/run-android-tests
  */
 public class AnnotationsTestPrinter extends InstrumentationRunListener {
+    private static final String TAG = AnnotationsTestPrinter.class.getSimpleName();
 
     @Override
     public void testStarted(Description description) throws Exception {
         super.testStarted(description);
 
+        Log.d(TAG, "testStarted: description: " + description);
         Collection<Annotation> annotations = description.getAnnotations();
-        if (annotations == null) {
+        Log.d(TAG, "testStarted: annotations: " + annotations);
+        if (annotations == null || annotations.isEmpty()) {
             return;
         }
 
