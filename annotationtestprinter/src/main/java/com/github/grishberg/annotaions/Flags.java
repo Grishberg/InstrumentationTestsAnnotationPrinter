@@ -10,6 +10,6 @@ import java.lang.annotation.Target;
  */
 @Retention(RetentionPolicy.RUNTIME)
 @Target(ElementType.METHOD)
-public @interface ParametrizedFeature {
-    String[] params();
+public @interface Flags {
+    String[] values();
 }

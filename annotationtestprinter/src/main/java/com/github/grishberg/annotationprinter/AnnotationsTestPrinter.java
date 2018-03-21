@@ -6,7 +6,7 @@ import android.support.test.internal.runner.listener.InstrumentationRunListener;
 import android.util.Log;
 
 import com.github.grishberg.annotaions.Feature;
-import com.github.grishberg.annotaions.ParametrizedFeature;
+import com.github.grishberg.annotaions.Flags;
 
 import org.junit.runner.Description;
 
@@ -46,9 +46,9 @@ public class AnnotationsTestPrinter extends InstrumentationRunListener {
             }
 
             // feature with array of parameters.
-            if (annotation instanceof ParametrizedFeature) {
-                bundle.putString("parametrizedFeature",
-                        processParametrizedFeatureAnnotation((ParametrizedFeature) annotation));
+            if (annotation instanceof Flags) {
+                bundle.putString("flags",
+                        processParametrizedFlagsAnnotation((Flags) annotation));
             }
 
             shouldAddComma = true;
@@ -59,9 +59,9 @@ public class AnnotationsTestPrinter extends InstrumentationRunListener {
                 .sendStatus(InstrumentationResultPrinter.REPORT_VALUE_RESULT_START, bundle);
     }
 
-    private String processParametrizedFeatureAnnotation(ParametrizedFeature annotation) {
+    private String processParametrizedFlagsAnnotation(Flags annotation) {
         StringBuilder sb = new StringBuilder();
-        String[] params = annotation.params();
+        String[] params = annotation.values();
         for (int i = 0; i < params.length; i++) {
             if (i > 0) {
                 sb.append(",");
