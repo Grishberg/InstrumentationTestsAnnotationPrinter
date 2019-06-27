@@ -1,4 +1,6 @@
 apply plugin: 'com.android.library'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-android'
 
 ext {
     PUBLISH_GROUP_ID = 'com.github.grishberg'
@@ -33,7 +35,7 @@ android {
 }
 
 dependencies {
-    def testRunnerVersion = '1.0.1'
+    def testRunnerVersion = '1.0.2'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
@@ -41,9 +43,14 @@ dependencies {
 
     implementation "com.android.support.test:runner:${testRunnerVersion}"
     implementation "com.android.support.test:rules:${testRunnerVersion}"
+    implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation 'com.google.code.gson:gson:2.8.5'
 
     androidTestImplementation "com.android.support.test:runner:${testRunnerVersion}"
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.1'
+    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
 }
 //need to call  ./gradlew clean build generateRelease
 apply from: 'android-release-aar.gradle'
+repositories {
+    mavenCentral()
+}

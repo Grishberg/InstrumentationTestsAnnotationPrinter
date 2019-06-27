@@ -7,6 +7,11 @@ androidTestImplementation "com.github.grishberg:annotationprinter:${printer_vers
 ```
 Log parser placed in https://github.com/Grigory-Rylov/android-instrumental-test-runner
 
+To test sample use:
+`
+adb shell am instrument -w -r -e log true -e listener com.github.grishberg.annotationprinter.AnnotationsTestPrinter -e debug false -e class 'com.github.grigory_rylov.instrumentaltestwithannotations.ExampleInstrumentedTest' com.github.grigory_rylov.instrumentaltestwithannotations.test/android.support.test.runner.AndroidJUnitRunner
+`
+
 Copyright 2017 Grigory Rylov
 
 Licensed under the Apache License, Version 2.0 (the "License");

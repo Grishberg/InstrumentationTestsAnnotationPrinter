@@ -13,6 +13,7 @@ import com.github.grishberg.annotaions.FlagsForClass;
 import org.junit.runner.Description;
 
 import java.lang.annotation.Annotation;
+import java.lang.reflect.Field;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
@@ -44,6 +45,16 @@ public class AnnotationsTestPrinter extends InstrumentationRunListener {
         Log.d(TAG, "testStarted: description: " + description);
         Collection<Annotation> methodAnnotations = description.getAnnotations();
         annotations.addAll(description.getAnnotations());
+
+        for (Annotation annotation : methodAnnotations) {
+            Log.d(TAG, "annotation: " + annotation);
+            Field[] fields = annotation.annotationType().getFields();
+            for (Field field : fields) {
+                Class<?> type = field.getType();
+                Log.d(TAG, "  field: name = " + field.getName() + ", type = " + type.getName());
+            }
+        }
+
         Log.d(TAG, "testStarted: method annotations: " + methodAnnotations);
         if (annotations.isEmpty()) {
             return;
@@ -54,6 +65,8 @@ public class AnnotationsTestPrinter extends InstrumentationRunListener {
         boolean shouldAddComma = false;
 
         for (Annotation annotation : annotations) {
+            AnnotationContainer annotationContainer = AnnotationValues.extractMemberValues(annotation);
+
             if (shouldAddComma) {
                 annotationsBuilder.append(",");
             }
