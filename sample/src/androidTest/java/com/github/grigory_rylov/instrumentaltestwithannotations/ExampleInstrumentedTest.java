@@ -21,7 +21,11 @@ import static org.junit.Assert.assertEquals;
 public class ExampleInstrumentedTest {
 
     @Test
-    @SampleAnnotation(stringParam = "someParam", intParam = 777)
+    @SampleAnnotation(
+            stringParam = "someParam",
+            intParam = 777,
+            intArray = {0, 1, 2},
+            strArray = {"one", "two"})
     public void useAppContext1() throws Exception {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getTargetContext();

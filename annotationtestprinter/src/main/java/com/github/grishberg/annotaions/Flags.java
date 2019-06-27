@@ -9,7 +9,7 @@ import java.lang.annotation.Target;
  * Custom annotation holds several parameters.
  */
 @Retention(RetentionPolicy.RUNTIME)
-@Target(ElementType.METHOD)
+@Target({ElementType.METHOD, ElementType.TYPE})
 public @interface Flags {
     String[] values();
 }

@@ -11,4 +11,8 @@ public @interface SampleAnnotation {
     String stringParam();
 
     int intParam();
+
+    int[] intArray();
+
+    String[] strArray();
 }
