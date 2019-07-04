@@ -9,15 +9,15 @@ ext {
 }
 
 android {
-    compileSdkVersion 27
+    compileSdkVersion 28
 
     defaultConfig {
         minSdkVersion 14
-        targetSdkVersion 27
+        targetSdkVersion 28
         versionCode 1
         versionName "1.0"
 
-        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
 
     }
 
@@ -35,19 +35,23 @@ android {
 }
 
 dependencies {
-    def testRunnerVersion = '1.0.2'
+    def testRunnerVersion = '1.2.0'
 
     implementation fileTree(dir: 'libs', include: ['*.jar'])
 
-    testImplementation 'junit:junit:4.12'
-
-    implementation "com.android.support.test:runner:${testRunnerVersion}"
-    implementation "com.android.support.test:rules:${testRunnerVersion}"
+    implementation "androidx.test:runner:$testRunnerVersion"
+    implementation "androidx.test:rules:$testRunnerVersion"
     implementation "org.jetbrains.kotlin:kotlin-stdlib-jdk7:$kotlin_version"
+    implementation "org.jetbrains.kotlin:kotlin-reflect:$kotlin_version"
+
     implementation 'com.google.code.gson:gson:2.8.5'
 
-    androidTestImplementation "com.android.support.test:runner:${testRunnerVersion}"
-    androidTestImplementation 'com.android.support.test.espresso:espresso-core:3.0.2'
+    testImplementation 'junit:junit:4.12'
+    testImplementation 'org.mockito:mockito-core:2.23.0'
+    testImplementation "com.nhaarman.mockitokotlin2:mockito-kotlin:2.1.0"
+
+    androidTestImplementation "androidx.test:runner:$testRunnerVersion"
+    androidTestImplementation "androidx.test.espresso:espresso-core:3.2.0"
 }
 //need to call  ./gradlew clean build generateRelease
 apply from: 'android-release-aar.gradle'

@@ -2,13 +2,12 @@ package com.github.grishberg.annotationprinter
 
 import com.google.gson.Gson
 import com.google.gson.GsonBuilder
-import java.lang.annotation.Annotation
 import java.lang.reflect.Method
 
 internal class AnnotationValues {
     private val gson: Gson = GsonBuilder().create()
 
-    fun annotationsAsJson(annotations: Collection<Annotation>): String {
+    fun annotationsAsJson(annotations: MutableList<Annotation>): String {
         val annotationContainers = ArrayList<AnnotationContainer>()
         for (annotation in annotations) {
             annotationContainers.add(extractMemberValues(annotation))
@@ -30,16 +29,16 @@ internal class AnnotationValues {
             val annotationMember: AnnotationMember = createMember(name, type, value)
             members.add(annotationMember)
         }
-        return AnnotationContainer(annotation.annotationType().name, members)
+        return AnnotationContainer(annotation.annotationClass.qualifiedName!!, members)
     }
 
     @Suppress("UNCHECKED_CAST")
     private fun createMember(name: String, type: Class<*>, value: Any): AnnotationMember {
         val member = AnnotationMember(name, type.name)
-        if (type == Int.javaClass) {
-            member.intValue = value as Int
-        } else if (type == String.javaClass) {
-            member.strValue = value as String
+        if (value is Int) {
+            member.intValue = value
+        } else if (value is String) {
+            member.strValue = value
         } else if (type == IntArray::class.java) {
             addIntArray(value as IntArray, member)
         } else if (type == Array<String>::class.java) {
