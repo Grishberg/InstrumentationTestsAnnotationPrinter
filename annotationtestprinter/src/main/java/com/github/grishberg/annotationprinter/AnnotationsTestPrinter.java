@@ -1,8 +1,6 @@
 package com.github.grishberg.annotationprinter;
 
 import android.os.Bundle;
-import android.support.test.internal.runner.listener.InstrumentationResultPrinter;
-import android.support.test.internal.runner.listener.InstrumentationRunListener;
 import android.util.Log;
 
 import org.junit.runner.Description;
@@ -13,6 +11,9 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Collection;
 import java.util.List;
+
+import androidx.test.internal.runner.listener.InstrumentationResultPrinter;
+import androidx.test.internal.runner.listener.InstrumentationRunListener;
 
 /**
  * Main idea https://github.com/medisafe/run-android-tests
