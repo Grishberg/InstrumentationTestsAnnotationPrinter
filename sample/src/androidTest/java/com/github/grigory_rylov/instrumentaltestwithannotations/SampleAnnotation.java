@@ -10,9 +10,9 @@ import java.lang.annotation.Target;
 public @interface SampleAnnotation {
     String stringParam();
 
-    int intParam();
+    int intParam() default 0;
 
-    int[] intArray();
+    int[] intArray() default {};
 
-    String[] strArray();
+    String[] strArray() default {};
 }
