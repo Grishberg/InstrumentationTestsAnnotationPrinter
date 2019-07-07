@@ -13,5 +13,6 @@ annotation class SampleAnnotation(
         val stringParam: String,
         val intParam: Int,
         val intArray: IntArray,
-        val strArray: Array<String>
+        val strArray: Array<String>,
+        val boolParam: Boolean
 )

@@ -43,6 +43,8 @@ internal class AnnotationValues {
             addIntArray(value as IntArray, member)
         } else if (type == Array<String>::class.java) {
             addStringArray(value as Array<String>, member)
+        } else if (value is Boolean) {
+            member.boolValue = value
         }
 
         return member
