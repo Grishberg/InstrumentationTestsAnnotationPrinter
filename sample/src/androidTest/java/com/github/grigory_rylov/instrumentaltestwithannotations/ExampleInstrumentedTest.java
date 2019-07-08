@@ -2,8 +2,6 @@ package com.github.grigory_rylov.instrumentaltestwithannotations;
 
 import android.content.Context;
 
-import com.github.grishberg.annotaions.Feature;
-
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -18,7 +16,7 @@ import static org.junit.Assert.assertEquals;
  * @see <a href="http://d.android.com/tools/testing">Testing documentation</a>
  */
 @RunWith(AndroidJUnit4.class)
-@Feature(param = "+morda?param1=value1")
+@SampleAnnotation(stringParam = "+morda?param1=value1")
 public class ExampleInstrumentedTest {
 
     @Test

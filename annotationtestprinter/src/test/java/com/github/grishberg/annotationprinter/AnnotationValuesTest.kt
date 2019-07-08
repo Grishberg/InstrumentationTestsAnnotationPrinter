@@ -46,11 +46,21 @@ class AnnotationValuesTest {
         assertTrue(json.contains("{\"name\":\"strArray\",\"valueType\":\"[Ljava.lang.String;\",\"strArray\":[\"1\",\"2\",\"3\"]}"))
     }
 
+    @Test
+    fun `contains bool param after serialization`() {
+        val annotations = asList(SampleClass().javaClass.declaredAnnotations[0])
+
+        val json = annotationValues.annotationsAsJson(annotations)
+
+        assertTrue(json.contains("{\"name\":\"boolParam\",\"valueType\":\"boolean\",\"boolValue\":true}"))
+    }
+
     @SampleAnnotation(
             stringParam = "some string",
             intParam = 123,
             strArray = ["1", "2", "3"],
-            intArray = [1, 2, 3]
+            intArray = [1, 2, 3],
+            boolParam = true
     )
     private class SampleClass
 }
